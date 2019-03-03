@@ -20,12 +20,15 @@ Test.create!(title: 'C++', level: 1, category_id: Category.find_by(title: 'backe
 Question.create!(body: 'question1', test_id: Test.find_by(title: 'Ruby').id)
 Question.create!(body: 'question1', test_id: Test.find_by(title: 'CSS').id)
 
-Answer.create!(body: "False answer", question_id: Question.where("body = :body AND test_id = :id", 'question1', Test.find_by(title: 'Ruby').id))
-Answer.create!(body: "False answer", question_id: Question.where("body = :body AND test_id = :id", 'question1', Test.find_by(title: 'Ruby').id))
-Answer.create!(body: "False answer", question_id: Question.where("body = :body AND test_id = :id", 'question1', Test.find_by(title: 'Ruby').id))
-Answer.create!(body: "True answer", correct: true, question_id: Question.where("body = :body AND test_id = :id", 'question1', Test.find_by(title: 'Ruby').id))
+Answer.create!(body: "False answer", question_id: Question.find_by(body: 'question1', test_id: Test.find_by(title: 'Ruby').id).id)
+Answer.create!(body: "True answer", correct: true, question_id: Question.find_by(body: 'question1', test_id: Test.find_by(title: 'Ruby').id).id)
+Answer.create!(body: "False answer", question_id: Question.find_by(body: 'question1', test_id: Test.find_by(title: 'Ruby').id).id)
+Answer.create!(body: "False answer", question_id: Question.find_by(body: 'question1', test_id: Test.find_by(title: 'Ruby').id).id)
 
-Answer.create!(body: "False answer", question_id: Question.where("body = :body AND test_id = :id", 'question1', Test.find_by(title: 'CSS').id))
-Answer.create!(body: "False answer", question_id: Question.where("body = :body AND test_id = :id", 'question1', Test.find_by(title: 'CSS').id))
-Answer.create!(body: "False answer", question_id: Question.where("body = :body AND test_id = :id", 'question1', Test.find_by(title: 'CSS').id))
-Answer.create!(body: "True answer", correct: true, question_id: Question.where("body = :body AND test_id = :id", 'question1', Test.find_by(title: 'CSS').id))
+Answer.create!(body: "False answer", question_id: Question.find_by(body: 'question1', test_id: Test.find_by(title: 'CSS').id).id)
+Answer.create!(body: "False answer", question_id: Question.find_by(body: 'question1', test_id: Test.find_by(title: 'CSS').id).id)
+Answer.create!(body: "False answer", question_id: Question.find_by(body: 'question1', test_id: Test.find_by(title: 'CSS').id).id)
+Answer.create!(body: "True answer", correct: true, question_id: Question.find_by(body: 'question1', test_id: Test.find_by(title: 'CSS').id).id)
+
+TestHistory.create!(user_id: User.find_by(name: 'Bob').id, test_id: Test.find_by(title: 'Ruby').id)
+TestHistory.create!(user_id: User.find_by(name: 'Bob').id, test_id: Test.find_by(title: 'CSS').id)
