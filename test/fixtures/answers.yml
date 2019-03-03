@@ -2,10 +2,10 @@
 
 one:
   body: MyString
-  right: 
+  correct:
   answer: one
 
 two:
   body: MyString
-  right: 
+  correct: 
   answer: two

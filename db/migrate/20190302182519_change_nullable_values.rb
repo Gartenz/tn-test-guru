@@ -7,6 +7,6 @@ class ChangeNullableValues < ActiveRecord::Migration[5.2]
     change_column_null(:users, :name, false)
     change_column_null(:users, :role, false)
     change_column_null(:answers, :body, false)
-    change_column_null(:answers, :right, false)
+    change_column_null(:answers, :correct, false)
   end
 end
