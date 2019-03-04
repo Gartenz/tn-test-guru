@@ -1,7 +1,8 @@
 class Test < ApplicationRecord
   belongs_to :category
 
-  def tests(level)
-    TestHistory.find_by(user_id: self.id)
+  def self.tests(category_name)
+    tests = Test.select(:title).joins(:category).where('categories.title = ?', category_name).order(title: :desc)
+    tests.map { |test| test.title }
   end
 end

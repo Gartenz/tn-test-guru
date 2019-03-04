@@ -32,3 +32,4 @@ Answer.create!(body: "True answer", correct: true, question_id: Question.find_by
 
 TestHistory.create!(user_id: User.find_by(name: 'Bob').id, test_id: Test.find_by(title: 'Ruby').id)
 TestHistory.create!(user_id: User.find_by(name: 'Bob').id, test_id: Test.find_by(title: 'CSS').id)
+TestHistory.create!(user_id: User.find_by(name: 'Maggie').id, test_id: Test.find_by(title: 'CSS').id)
