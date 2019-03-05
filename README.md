@@ -17,6 +17,7 @@ Things you may want to cover:
     * Users
     * Roles
     * Tests
+    * TestHistory
     * Questions
     * Answers
 
