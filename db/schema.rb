@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_03_131831) do
+ActiveRecord::Schema.define(version: 2019_03_05_093357) do
 
   create_table "answers", force: :cascade do |t|
     t.string "body", null: false
@@ -44,14 +44,8 @@ ActiveRecord::Schema.define(version: 2019_03_03_131831) do
     t.index ["user_id"], name: "index_test_histories_on_user_id"
   end
 
-  create_table "tests", force: :cascade do |t|
-    t.string "title", null: false
-    t.integer "level", default: 0, null: false
-    t.integer "category_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_tests_on_category_id"
-  end
+# Could not dump table "tests" because of following StandardError
+#   Unknown type 'reference' for column 'user'
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
