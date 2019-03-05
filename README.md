@@ -14,7 +14,7 @@ Things you may want to cover:
 
 * Database creation
   
-  [Database struckture](https://github.com/Gartenz/tn-test-guru/wiki/Database-structure)
+  [Database structure](https://github.com/Gartenz/tn-test-guru/wiki/Database-structure)
     
 
 * Database initialization
