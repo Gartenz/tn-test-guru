@@ -13,13 +13,9 @@ Things you may want to cover:
 * Configuration
 
 * Database creation
-  #### Database entities
-    * Users
-    * Roles
-    * Tests
-    * TestHistory
-    * Questions
-    * Answers
+  
+  [Database struckture](https://github.com/Gartenz/tn-test-guru/wiki/Database-structure)
+    
 
 * Database initialization
   
