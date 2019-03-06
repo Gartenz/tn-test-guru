@@ -12,8 +12,8 @@ categories = Category.create!([{ title: 'backend' }, { title: 'frontend' }, { ti
 
 Test.create!(title: 'Ruby', level: 1, category_id: categories[0].id, user_id: users[0].id)
 Test.create!(title: 'Rails', level: 2, category_id: categories[1].id, user_id: users[0].id)
-Test.create!(title: 'CSS', level: 1, category_id: categories[1].id, user_id: users[0].id)
-Test.create!(title: 'HTML', level: 1, category_id: categories[1].id, user_id: users[0].id)
+Test.create!(title: 'CSS', level: 1, category_id: categories[1].id, user_id: users[1].id)
+Test.create!(title: 'HTML', level: 1, category_id: categories[1].id, user_id: users[1].id)
 Test.create!(title: 'C#', level: 1, category_id: categories[0].id, user_id: users[0].id)
 Test.create!(title: 'C++', level: 1, category_id: categories[0].id, user_id: users[0].id)
 
