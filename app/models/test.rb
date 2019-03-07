@@ -12,8 +12,9 @@ class Test < ApplicationRecord
   scope :easy, -> { where(level: 0..1) }
   scope :medium, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }
+  scope :by_category, (name) -> { joins(:category).where('categories.title = ?', name) }
 
   def self.titles_by_category(name)
-    joins(:category).where('categories.title = ?', name).pluck('tests.title')
+    by_category(name).pluck('tests.title')
   end
 end
