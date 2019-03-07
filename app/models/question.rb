@@ -3,6 +3,4 @@ class Question < ApplicationRecord
   has_many :answers
 
   validates :body, presence: true
-
-  scope :correct, -> { answers.where(correct: true) }
 end

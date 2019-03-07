@@ -3,6 +3,8 @@ class Answer < ApplicationRecord
 
   validates :body, presence: true
   validate :validates_question_size, on: :create
+
+  scope :correct, -> { where(correct: true) }
   
   private
 
