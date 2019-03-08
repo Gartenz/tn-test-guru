@@ -15,12 +15,18 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    result = Question.create(question_params)
-    redirect_to test_questions_path
+    question = @test.questions.new(question_params)
+    if qeustion.save
+      redirect_to test_questions_path
+    else
+      handle error
+    end
   end
 
   def destroy
-    Question.delete(params[:id])
+    question = Qustion.find(params[:id]).destroy
+
+    render plain: "Question deleted"
   end
 
   private
@@ -30,10 +36,11 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:body, :test_id)
+    params.require(:question).permit(:body)
   end
 
   def rescue_record_not_found
+    head :not_found
     render plain: "Record not found!"
   end
 
