@@ -1,0 +1,11 @@
+<div>
+  <p>Question: <%= @question.body%></p>
+
+  <p>Answers:</p>
+  <ul>
+    <% @question.answers.each do |answer| %>
+      <li> <%= answer.body %></li>
+    <% end %>
+  </ul>
+  <%= link_to 'Back', test_path(@question.test_id) %>
+</div>

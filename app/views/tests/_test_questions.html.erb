@@ -1,0 +1,19 @@
+<h3> Test has <%= pluralize(@test.questions.count, 'question', 'questions') %>.</h3>
+<h3> Test questions: </h3>
+<%= link_to 'New Question', new_test_question_path(@test.id) %>
+<table>
+  <th> Question </<th>
+  <th collspan = '3'> Actions</th>
+  <% @test.questions.each do |question| %>
+    <tr>
+      <td> <%= question.body %> </td>
+      <td>
+        <%= link_to "Show", question_path(question) %>
+        <%= link_to "Edit", edit_question_path(question) %>
+        <%= link_to 'Delete', question_path(question),
+                              method: :delete,
+                              data: { confirm: 'Are you sure?' }%>
+      </td>
+    </tr>
+  <% end %>
+</table>
