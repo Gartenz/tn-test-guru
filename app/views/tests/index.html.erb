@@ -1,0 +1,11 @@
+<div">
+  <h2>Tests list</h2>
+  <%=link_to 'New test', new_test_path %>
+  <table>
+    <th>Name</th>
+    <th>Difficulty</th>
+    <th>Category</th>
+    <th collspan='3'>Actions</th>
+    <%= render @tests %>
+  </table>
+</div>
