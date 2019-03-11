@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  before_action :search_test, only: %i[index new create]
+
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_record_not_found
 
   def index
@@ -10,8 +12,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @test = Test.find(params[:test_id])
-    @question = Question.new
+    @question = @test.question.new
   end
 
   def edit
@@ -19,10 +20,9 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    test = Test.find(params[:test_id])
-    question = test.questions.new(question_params)
+    question = @test.questions.new(question_params)
     if question.save
-      redirect_to test_path(test)
+      redirect_to test_path(@test)
     else
       render :new
     end
@@ -44,6 +44,9 @@ class QuestionsController < ApplicationController
   end
 
   private
+  def search_test
+    @test = Test.find(params[:test_id])
+  end
 
   def question_params
     params.require(:question).permit(:body)

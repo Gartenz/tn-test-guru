@@ -1,7 +1,6 @@
 module QuestionsHelper
-  METHODS = {new: 'Create New', edit: 'Edit'}.freeze
-
-  def question_header(method, title)
-    "#{METHODS[method]} #{title} Question"
+  def question_header(question)
+    "Create New #{question.test.title} Question" if question.new_record?
+    "Edit #{question.body} Question" if question.persisted?
   end
 end

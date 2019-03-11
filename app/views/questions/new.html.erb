@@ -1,3 +1,3 @@
-<h1><%= question_header :new, @test.title %></h1>
+<h1><%= question_header(@question) %></h1>
 <%= render 'form' %>
 <%= link_to 'back', test_path(@test.id) %>
