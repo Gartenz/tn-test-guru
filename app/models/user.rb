@@ -1,11 +1,15 @@
 class User < ApplicationRecord
   has_many :created_tests, class_name: 'Test', inverse_of: :author
-  has_many :tests_users
-  has_many :tests, through: :tests_users
+  has_many :test_passages
+  has_many :tests, through: :test_passages
 
   validates :name, presence: true
   validates :email, presence: true
-  
+
+  def test_passage(test)
+    test_passages.order(created_at: :desc).find_by(test_id: test.id)
+  end
+
   def completed_tests(level)
     tests.where(level: level)
   end
