@@ -33,10 +33,6 @@ class TestPassage < ApplicationRecord
 
   private
 
-  def passing_test?
-    self.persisted?
-  end
-
   def set_next_question
     self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first
   end
