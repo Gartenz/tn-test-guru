@@ -1,7 +1,7 @@
 <h1>
-  <%= result_test_title(@percentage,@test_passage.test.title) %> with
-  <span class=<%= test_win?(@percentage)? "winner" : "looser" %>>
-    <%= "#{@percentage.round(2)}%" %>
+  <%= result_test_title(@test_passage.success?, @test_passage.test.title) %> with
+  <span class=<%= @test_passage.success?? "winner" : "looser" %>>
+    <%= "#{@percentage}%" %>
   </span>
 </h1>
 <%= link_to 'Back to tests', tests_path %>

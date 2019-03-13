@@ -16,6 +16,7 @@ class TestsController < ApplicationController
   end
 
   def create
+    @test = Test.new(tests_params)
     if @test.save
       redirect_to tests_path
     else
