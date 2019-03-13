@@ -6,7 +6,7 @@ class TestPassagesController < ApplicationController
   end
 
   def result
-
+    @percentage = @test_passage.correct_questions.to_f / @test_passage.test.questions.count * 100
   end
 
   def update
