@@ -27,7 +27,3 @@ tests.each do |test|
   question.answers.create!(body: "False answer")
   question.save!
 end
-
-TestsUser.create!(user_id: users[0].id, test_id: tests[0].id)
-TestsUser.create!(user_id: users[0].id, test_id: tests[2].id)
-TestsUser.create!(user_id: users[1].id, test_id: tests[2].id)
