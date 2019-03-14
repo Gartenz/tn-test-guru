@@ -1,8 +1,6 @@
 require 'digest/sha1'
 
 class User < ApplicationRecord
-  include Auth
-
   has_many :created_tests, class_name: 'Test', inverse_of: :author
   has_many :test_passages
   has_many :tests, through: :test_passages

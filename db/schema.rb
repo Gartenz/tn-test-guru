@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 2019_03_14_091959) do
     t.integer "correct_questions", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "passed_questions", default: 1
     t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
     t.index ["test_id"], name: "index_test_passages_on_test_id"
     t.index ["user_id"], name: "index_test_passages_on_user_id"
@@ -62,8 +61,8 @@ ActiveRecord::Schema.define(version: 2019_03_14_091959) do
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
-    t.string "email"
-    t.string "role", null: false
+    t.string "email", null: false
+    t.string "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
