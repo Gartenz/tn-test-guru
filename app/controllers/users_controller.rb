@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to tests_path
     else
+      flash[:alert] = "Something wrong! Please check your email or passsowrd"
       render :new
     end
   end

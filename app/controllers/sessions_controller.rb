@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to tests_path
     else
+      flash[:alert] = "Something wrong! Please check your email or passsowrd"
       render :new
     end
   end
