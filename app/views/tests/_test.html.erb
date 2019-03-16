@@ -5,11 +5,6 @@
     <td> <%= test.category.title %> </td>
   <% end %>
   <td>
-    <%= link_to 'Show', test_path(test) %>
-    <%= link_to 'Edit', edit_test_path(test) %>
-    <%= link_to 'Delete', test_path(test),
-                          method: :delete,
-                          data: { confirm: 'Are you sure?' } %>
     <%= button_to 'Start', start_test_path(test) %>
   </td>
 </tr>

@@ -1,7 +1,7 @@
 <div>
   <%= link_to 'TestGuru Project', root_path %>
 </div>
-<div class='nav'>
+<div class='nav user'>
   <% if user_signed_in? %>
     <p class ='user'>
       Welcome, <b><%= current_user.email%> Guru<b>

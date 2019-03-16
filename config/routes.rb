@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
   get 'users/new'
 
-  resources :tests do
+  resources :tests, only: :index do
     resources :questions, shallow: true, except: :index do
       resources :answers, shallow: true, except: :index
     end
@@ -24,4 +24,7 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :admin do
+    resources :tests
+  end
 end

@@ -4,5 +4,5 @@
 <table>
   <th> Question </<th>
   <th collspan = '3'> Actions</th>
-  <%= render @test.questions %>
+  <%= render partial: 'questions/question', collection: @test.questions %>
 </table>
