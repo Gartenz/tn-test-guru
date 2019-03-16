@@ -1,0 +1,14 @@
+<div>
+  <%= link_to 'TestGuru Project', root_path %>
+</div>
+<div class='nav'>
+  <% if logged_in? %>
+    <p class ='user'>
+      Welcome, <b><%= current_user.name%> Guru<b>
+      <%= link_to 'Logout', logout_path %>
+    </p>
+  <% else %>
+    <%= link_to 'Login', login_path %>
+    <%= link_to 'Register', signup_path %>
+  <% end %>
+</div>
