@@ -5,7 +5,7 @@ module ApplicationHelper
 
   def flash_message(tag_type, classes)
     flash.map do |key, msg|
-      content_tag tag_type, msg, :id => key, :class => classes
+      content_tag tag_type, msg, id: key, class: classes
     end.join
   end
 

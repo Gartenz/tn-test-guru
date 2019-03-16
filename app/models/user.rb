@@ -6,7 +6,8 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
 
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP,
-                              message: 'Please enter correct email'}
+                              message: 'Please enter correct email'},
+                    uniqueness: true
 
   has_secure_password
 
