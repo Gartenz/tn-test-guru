@@ -1,15 +1,12 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-  get 'users/new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
   root 'tests#index'
 
-  get :signup, to: 'users#new'
-  get :login, to: 'sessions#new'
-  get :logout, to: 'sessions#destroy'
+  devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }
 
-  resources :users, only: :create
-  resources :sessions, only: :create
+  get 'sessions/new'
+  get 'users/new'
 
   resources :tests do
     resources :questions, shallow: true, except: :index do

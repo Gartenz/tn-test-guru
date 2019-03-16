@@ -1,6 +1,14 @@
-require 'digest/sha1'
-
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :trackable,
+         :validatable,
+         :confirmable
+
   has_many :created_tests, class_name: 'Test', inverse_of: :author
   has_many :test_passages
   has_many :tests, through: :test_passages
@@ -9,7 +17,6 @@ class User < ApplicationRecord
                               message: 'Please enter correct email'},
                     uniqueness: true
 
-  has_secure_password
 
   def test_passage(test)
     test_passages.order(created_at: :desc).find_by(test_id: test.id)
