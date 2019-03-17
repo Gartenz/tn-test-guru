@@ -1,0 +1,48 @@
+ru:
+  tests_common:
+    name: "Название"
+    difficulty: "Сложность"
+    category: "Категория"
+    actions: "Действия"
+  admin:
+    show: "Просмтореть"
+    delete: "Удалить"
+    edit: "Изменить"
+    back: "Назад"
+    tests:
+      no_category: "Нет Категории"
+      index:
+        new_test: "Новый тест"
+        header: "Доступные тесты"
+      edit:
+        header: "Изменить тест"
+      new:
+        header: "Новый тест"
+      show:
+        header: "Тест %{title}"
+      test_questions:
+        test_question: "Вопросы теста"
+        new_question: "Новый вопрос"
+        question_count:
+          one: "У теста есть %{count} вопрос"
+          few: "У теста есть %{count} вопроса"
+          many: "У теста есть %{count} вопросов"
+          other: "У теста есть %{count} вопросов"
+        question: "Вопрос"
+  tests:
+    index:
+      header: "Доступные тесты"
+    test:
+      start: "Начать"
+  helpers:
+    submit:
+      test:
+        create: "Создать тест"
+        update: "Обновить тест"
+    select:
+      prompt: "Выберите категорию"
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"

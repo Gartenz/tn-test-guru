@@ -1,0 +1,6 @@
+en:
+  test_passages:
+    show:
+      header: "Passing the %{title} test"
+      question_number: "Question %{number} of %{total}"
+      next: "Next"
