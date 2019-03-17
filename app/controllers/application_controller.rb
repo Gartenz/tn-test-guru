@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :set_request_path
-  before_action :display_welcome_flash, if: :have_user?
+  before_action :display_welcome_flash, if: :user_signed_in?
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
@@ -11,10 +11,6 @@ class ApplicationController < ActionController::Base
   end
 
   private
-
-  def have_user?
-    user_signed_in?
-  end
 
   def display_welcome_flash
     flash[:welcome] = "Привет, #{current_user.first_name}!"

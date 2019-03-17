@@ -22,6 +22,10 @@ class User < ApplicationRecord
     test_passages.order(created_at: :desc).find_by(test_id: test.id)
   end
 
+  def admin?
+    is_a?(Admin)
+  end
+
   def completed_tests(level)
     tests.where(level: level)
   end
