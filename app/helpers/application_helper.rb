@@ -3,10 +3,10 @@ module ApplicationHelper
     Date.current.year
   end
 
-  def flash_message(tag_type, classes)
+  def flash_message(tag_type)
     flash.map do |key, msg|
-      content_tag tag_type, msg, id: key, class: classes
-    end.join
+      (content_tag tag_type, msg, id: key, class: "flash #{key}")
+    end.join.html_safe
   end
 
   def github_url(author, repo = '')
