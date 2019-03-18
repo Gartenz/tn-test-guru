@@ -1,17 +1,17 @@
 <%= render 'shared/errors', resource: @test %>
 <%= form_with model: [:admin, @test], local: true do |f| %>
-  <p>
+  <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title %>
-  </p>
-  <p>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
     <%= f.label :level %>
-    <%= f.text_field :level %>
-  </p>
-  <p>
+    <%= f.text_field :level, class: "form-control" %>
+  </div>
+  <div class="form-group">
     <%= f.label :category_id %>
-    <%= f.collection_select :category_id, Category.all, :id, :title, prompt: true %>
-  </p>
-  <p> <%= f.submit %> </p>
+    <%= f.collection_select :category_id, Category.all, :id, :title, { prompt: true }, { class: "form-control" } %>
+  </div>
+  <%= f.submit class: "btn btn-primary" %>
 <% end %>
-<%= link_to t('admin.back'), admin_tests_path %>
+<%= link_to t('admin.back'), admin_tests_path, class: "btn btn-link" %>

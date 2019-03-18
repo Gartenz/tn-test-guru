@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scacle=1, shrink-to-fit=no">
+
     <title>Admin Part of TestGuru</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,7 +15,9 @@
   <body>
     <%= render 'admin/nav' %>
     <%= render 'shared/flash' %>
-    <%= yield %>
-    <%= render 'layouts/footer' %>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <%= render 'shared/footer' %>
   </body>
 </html>

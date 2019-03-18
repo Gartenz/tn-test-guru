@@ -1,27 +1,28 @@
-<div>
-  <h2><%= t('.header', title: @test.title) %></h2>
-  <div>
-    <p>
-      <%= "#{t('admin.tests.name')}: #{@test.title}" %>
-    </p>
-    <p>
-      <%= "#{t('admin.tests.difficulty')}: #{@test.level}" %>
-    </p>
-    <p>
-      <%= t('admin.tests.category') %>:
-      <% if @test.category.present? %>
-        <%= @test.category.title %>
-      <% else %>
-        <%= t('admin.tests.no_category') %>
-      <% end %>
-    </p>
+<div class="row justify-content-center mt-5">
+  <div class="col">
+    <div class="card shadow">
+      <div class="card-body">
+        <h2 class="card-title"><%= t('.header', title: @test.title) %></h2>
+          <ul class="list-group list-group-flush mb-3">
+            <li class="list-group-item"><%= "#{t('tests_common.name')}: #{@test.title}" %></li>
+            <li class="list-group-item"><%= "#{t('tests_common.difficulty')}: #{@test.level}" %></li>
+            <li class="list-group-item">
+              <%= t('tests_common.category') %>:
+              <% if @test.category.present? %>
+                <%= @test.category.title %>
+              <% else %>
+                <%= t('admin.tests.no_category') %>
+              <% end %>
+            </li>
+          </ul>
+        <%= render 'test_questions' %>
+        <%= link_to t('admin.edit'), edit_admin_test_path(@test), class: "btn btn-link" %>
+        <%= link_to t('admin.back'), admin_tests_path, class: "btn btn-link" %>
+        <%= link_to t('admin.delete'), admin_test_path(@test),
+                                       method: :delete,
+                                       data: { confirm: t('delete_confirm') },
+                                       class: "btn btn-danger" %>
+      </div>
   </div>
-  <div>
-    <%= render 'test_questions' %>
   </div>
-  <%= link_to t('admin.edit'), edit_admin_test_path(@test) %> |
-  <%= link_to t('admin.delete'), admin_test_path(@test),
-                                 method: :delete,
-                                 data: { confirm: t('delete_confirm') } %> |
-  <%= link_to t('admin.back'), admin_tests_path %>
 </div>
