@@ -1,11 +1,11 @@
-<div">
-  <h2>Tests list</h2>
-  <%=link_to 'New test', new_admin_test_path %>
+<div>
+  <h2><%= t('.header') %></h2>
+  <%=link_to t('.new_test'), new_admin_test_path %>
   <table>
-    <th>Name</th>
-    <th>Difficulty</th>
-    <th>Category</th>
-    <th colspan='3'>Actions</th>
+    <th><%= t('tests_common.name') %></th>
+    <th><%= t('tests_common.difficulty') %></th>
+    <th><%= t('tests_common.category') %></th>
+    <th colspan='3'><%= t('tests_common.actions') %></th>
     <%= render @tests %>
   </table>
 </div>

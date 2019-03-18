@@ -1,27 +1,27 @@
 <div>
-  <h2> Test <%= @test.title %> </h2>
+  <h2><%= t('.header', title: @test.title) %></h2>
   <div>
     <p>
-      Test name: <%= @test.title %>
+      <%= "#{t('admin.tests.name')}: #{@test.title}" %>
     </p>
     <p>
-      Test level: <%= @test.level %>
+      <%= "#{t('admin.tests.difficulty')}: #{@test.level}" %>
     </p>
     <p>
-      Test category:
+      <%= t('admin.tests.category') %>:
       <% if @test.category.present? %>
         <%= @test.category.title %>
       <% else %>
-        No category
+        <%= t('admin.tests.no_category') %>
       <% end %>
     </p>
   </div>
   <div>
     <%= render 'test_questions' %>
   </div>
-  <%= link_to 'Edit', edit_admin_test_path(@test) %> |
-  <%= link_to 'Delete', admin_test_path(@test),
-                        method: :delete,
-                        data: { confirm: 'Are you sure?' } %> |
-  <%= link_to 'Back', admin_tests_path %>
+  <%= link_to t('admin.edit'), edit_admin_test_path(@test) %> |
+  <%= link_to t('admin.delete'), admin_test_path(@test),
+                                 method: :delete,
+                                 data: { confirm: t('delete_confirm') } %> |
+  <%= link_to t('admin.back'), admin_tests_path %>
 </div>

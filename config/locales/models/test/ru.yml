@@ -1,0 +1,13 @@
+ru:
+  activerecord:
+    models:
+      test: "Тест"
+    attributes:
+      test:
+        title: "Название"
+        level: "Сложность"
+        questions: "Список вопросов"
+        category: "Категория"
+        created_at: "Создан в"
+        updated_at: "Обновлен в"
+        author: "Автор"

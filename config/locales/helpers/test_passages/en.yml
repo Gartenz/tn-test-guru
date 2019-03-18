@@ -1,0 +1,3 @@
+en:
+  message_success: "Congratulations! You are passed test %{title} with"
+  message_failure: "Sorry! You are not passed stest %{title}. Your score"

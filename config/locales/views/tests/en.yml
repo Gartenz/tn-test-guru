@@ -1,0 +1,46 @@
+en:
+  tests_common:
+    name: "Name"
+    difficulty: "Difficulty"
+    category: "Category"
+    actions: "Actions"
+  admin:
+    show: "Show"
+    delete: "Delete"
+    edit: "Edit"
+    back: "Back"
+    tests:
+      no_category: "No category"
+      index:
+        new_test: "New test"
+        header: "Available tests"
+      edit:
+        header: "Edit Test"
+      new:
+        header: "New test"
+      show:
+        header: "Test %{title}"
+      test_questions:
+        test_question: "Test questions"
+        new_question: "New question"
+        question_count:
+          one: "Test has %{count} question"
+          other: "Test has %{count} question"
+        question: "Question"
+  tests:
+    index:
+      header: "Available tests"
+    test:
+      start: "Start"
+  helpers:
+    submit:
+      test:
+        create: "Create test"
+        update: "Update test"
+    select:
+      prompt: "Select category"
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"

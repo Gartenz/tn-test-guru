@@ -1,0 +1,6 @@
+ru:
+  test_passages:
+    show:
+      header: "Прохождение теста %{title}"
+      question_number: "Вопрос: %{number} из %{total}"
+      next: "Далее"

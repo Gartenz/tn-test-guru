@@ -1,10 +1,10 @@
-<div">
-  <h2>Tests list</h2>
+<div>
+  <h2><%= t('tests.index.header') %></h2>
   <table>
-    <th>Name</th>
-    <th>Difficulty</th>
-    <th>Category</th>
-    <th>Actions</th>
+    <th><%= t('tests_common.name') %></th>
+    <th><%= t('tests_common.difficulty') %></th>
+    <th><%= t('tests_common.category') %></th>
+    <th><%= t('tests_common.actions') %></th>
     <%= render @tests %>
   </table>
 </div>

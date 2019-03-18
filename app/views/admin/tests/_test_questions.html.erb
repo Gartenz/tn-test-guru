@@ -1,8 +1,8 @@
-<h3> Test has <%= pluralize(@test.questions.count, 'question', 'questions') %>.</h3>
-<h3> Test questions: </h3>
-<%= link_to 'New Question', new_admin_test_question_path(@test.id) %>
+<h3><%= t('.question_count', count: @test.questions.count) %>.</h3>
+<h3><%= t('.test_question') %>: </h3>
+<%= link_to t('.new_question'), new_admin_test_question_path(@test.id) %>
 <table>
-  <th> Question </<th>
-  <th collspan = '3'> Actions</th>
+  <th><%= t('.question') %></<th>
+  <th collspan = '3'> <%= t('admin.actions') %></th>
   <%= render @test.questions %>
 </table>
