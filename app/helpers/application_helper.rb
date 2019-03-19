@@ -3,9 +3,9 @@ module ApplicationHelper
     Date.current.year
   end
 
-  def flash_message(tag_type)
+  def flash_message()
     flash.map do |key, msg|
-      (content_tag tag_type, msg, id: key, class: "flash #{key}")
+      (content_tag :div, msg, id: key, class: "alert alert-#{key}", role: "alert")
     end.join.html_safe
   end
 

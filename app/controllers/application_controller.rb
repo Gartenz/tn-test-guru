@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   def display_welcome_flash
-    flash[:welcome] = "Привет, #{current_user.first_name}!"
+    flash[:primary] = "Привет, #{current_user.first_name}!"
   end
 
   def set_request_path
