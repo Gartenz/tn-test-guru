@@ -1,8 +1,8 @@
-<h3><%= t('.question_count', count: @test.questions.count) %>.</h3>
-<h3><%= t('.test_question') %>: </h3>
-<%= link_to t('.new_question'), new_admin_test_question_path(@test.id) %>
-<table>
+<h5><%= t('.question_count', count: @test.questions.count) %>.</h5>
+<%= link_to t('.new_question'), new_admin_test_question_path(@test.id), class: "btn btn-link"%>
+<h5><%= t('.test_question') %>: </h5>
+<table class="table table-striped table-sm">
   <th><%= t('.question') %></<th>
-  <th collspan = '3'> <%= t('admin.actions') %></th>
+  <th colspan='3'><%= t('tests_common.actions') %></th>
   <%= render @test.questions %>
 </table>
