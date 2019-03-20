@@ -31,3 +31,7 @@
 
 en:
   delete_confirm: "Are you sure?"
+  test_passages:
+    gist:
+      success: "Gist successfully saved"
+      failure: "While saving gist was an error"
