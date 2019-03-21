@@ -20,7 +20,7 @@ users[1].created_tests.create!(title: 'HTML', level: 1, category_id: categories[
 tests = Test.all
 
 tests.each do |test|
-  question = test.questions.create!(body: 'question1')
+  question = test.questions.create!(body: 'question looooooooooooooooong1')
   question.answers.create!(body: "False answer")
   question.answers.create!(body: "True answer", correct: true)
   question.answers.create!(body: "False answer")

@@ -17,7 +17,6 @@ module TestGuru
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
 
     config.time_zone = 'Moscow'
-    config.autoload_paths << "#{Rails.root}/lib/clients"
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

@@ -1,5 +1,5 @@
 <tr>
   <td><%= link_to "#{gist.gist_id}", gist.url, target: "_blanck" %></td>
-  <td><%= gist.question.body[0..25] %></td>
+  <td><%= truncate(gist.question.body, length: 25)  %></td>
   <td><%= gist.user.email %></td>
 </tr>

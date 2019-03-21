@@ -20,15 +20,21 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    web_gist = GistQuestionService.new(@test_passage.current_question).call
+    client = GistQuestionService.new(@test_passage.current_question)
+    web_gist = client.call
 
-    db_gist = Gist.new(gist_id: web_gist.id, user: current_user, question: @test_passage.current_question, url: web_gist[:html_url])
-    if db_gist.save
-      flash[:primary] = web_gist[:html_url]
+    if client.last_response.status == 201
+      db_gist = Gist.new(gist_id: web_gist.id, user: current_user, question: @test_passage.current_question, url: web_gist[:html_url])
+      if db_gist.save
+        flash[:primary] = web_gist[:html_url]
+      else
+        flash[:danger] = "There was error while saving gist to DB"
+      end
     else
-      flash[:danger] = "There was error while saving gist to DB"
+      flash[:danger] = "There was an error while creating Gist on GitHub"
     end
     redirect_to @test_passage
+
   end
 
   private
