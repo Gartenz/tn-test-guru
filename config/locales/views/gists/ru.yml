@@ -1,0 +1,6 @@
+ru:
+  gists:
+    index:
+      gist_url: "Ссылка на gist"
+      gist_question: "Вопрос"
+      gist_user_email: "Почта пользователя"

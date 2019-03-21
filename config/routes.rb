@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'gists/show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'tests#index'
@@ -25,5 +26,6 @@ Rails.application.routes.draw do
         resources :answers, shallow: true, except: :index
       end
     end
+    resources :gists, shallow: true, only: %i[index]
   end
 end
