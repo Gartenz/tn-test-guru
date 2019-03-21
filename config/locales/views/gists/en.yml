@@ -1,0 +1,6 @@
+en:
+  gists:
+    index:
+      gist_url: "Gist URL"
+      gist_question: "Question"
+      gist_user_email: "User email"

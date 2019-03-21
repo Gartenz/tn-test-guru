@@ -1,5 +1,5 @@
 class TestPassagesController < ApplicationController
-  before_action :set_test_passage, only: %i[show update result]
+  before_action :set_test_passage, only: %i[show update result gist]
 
   def show
 
@@ -18,6 +18,26 @@ class TestPassagesController < ApplicationController
       render :show
     end
   end
+
+  def gist
+    client = GistQuestionService.new(@test_passage.current_question)
+    web_gist = client.call
+
+    if client.last_response.status == 201
+      db_gist = Gist.new(gist_id: web_gist.id, user: current_user, question: @test_passage.current_question, url: web_gist[:html_url])
+      if db_gist.save
+        flash[:primary] = web_gist[:html_url]
+      else
+        flash[:danger] = "There was error while saving gist to DB"
+      end
+    else
+      flash[:danger] = "There was an error while creating Gist on GitHub"
+    end
+    redirect_to @test_passage
+
+  end
+
+  private
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
