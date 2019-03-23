@@ -32,9 +32,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise', '~> 4.0'
 # localizations
 gem 'rails-i18n', '~> 5.1'
-#bootstrap
+#UI
 gem 'jquery-rails'
 gem 'bootstrap', '~>4.3.1'
+gem 'octicons_helper'
 #Network
 # gem "faraday"
 #Github client
