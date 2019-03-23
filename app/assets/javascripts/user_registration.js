@@ -1,6 +1,6 @@
 document.addEventListener('turbolinks:load', function() {
   var pswd_confirm = document.querySelector('#user_password_confirmation')
-  pswd_confirm.oninput = checkValues
+  if (pswd_confirm) { pswd_confirm.oninput = checkValues }
 })
 
 function checkValues() {
