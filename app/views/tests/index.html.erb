@@ -1,7 +1,11 @@
 <div class="row">
   <h2><%= t('tests.index.header') %></h2>
   <table class="table table-striped table-hover">
-    <th><%= t('tests_common.name') %></th>
+    <th class="sort-by-title pointer">
+      <%= t('tests_common.name') %>
+      <%= octicon 'arrow-up', class: "text-success hide" %>
+      <%= octicon 'arrow-down', class: "text-success hide" %>
+    </th>
     <th><%= t('tests_common.difficulty') %></th>
     <th><%= t('tests_common.category') %></th>
     <th><%= t('tests_common.actions') %></th>
