@@ -27,6 +27,8 @@ en:
           one: "Test has %{count} question"
           other: "Test has %{count} question"
         question: "Question"
+      form_inline:
+        submit: "OK"
   tests:
     index:
       header: "Available tests"
