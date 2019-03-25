@@ -7,7 +7,7 @@ document.addEventListener('turbolinks:load', function() {
 })
 
 function updateProgressBar(pb) {
-  var percentage = Math.round(pb.getAttribute('aria_valuenow') * 100 / pb.getAttribute('aria_valuemax'))
+  var percentage = Math.round(pb.dataset.currentValue * 100 / pb.dataset.maxValue)
 
   pb.setAttribute('style', 'width: ' + percentage + '%;')
 }

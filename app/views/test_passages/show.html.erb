@@ -6,7 +6,9 @@
                              role: 'progressbar',
                              aria_valuenow: "#{@test_passage.question_number}",
                              aria_valuemin: "0",
-                             aria_valuemax: "#{@test_passage.test.questions.count}" %>
+                             aria_valuemax: "#{@test_passage.test.questions.count}",
+                             data: {max_value: @test_passage.test.questions.count,
+                                    current_value: @test_passage.question_number } %>
 </div>
 <b>
   <%= @test_passage.current_question.body %>
