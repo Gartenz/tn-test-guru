@@ -4,11 +4,11 @@
   <!-- <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="3"></div> -->
   <%= content_tag :div, nil, class: 'progress-bar',
                              role: 'progressbar',
-                             aria_valuenow: "#{@test_passage.question_number}",
+                             aria_valuenow: "#{@test_passage.question_number - 1}",
                              aria_valuemin: "0",
                              aria_valuemax: "#{@test_passage.test.questions.count}",
                              data: {max_value: @test_passage.test.questions.count,
-                                    current_value: @test_passage.question_number } %>
+                                    current_value: @test_passage.question_number - 1 } %>
 </div>
 <b>
   <%= @test_passage.current_question.body %>
