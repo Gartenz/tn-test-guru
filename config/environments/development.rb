@@ -36,18 +36,19 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  # config.action_mailer.delivery_method = :letter_opener
-  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  config.action_mailer.default_url_options = { host: 'gartenz-testguru.herokuapp.com' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    tls:                  true,
-    address:              'smtp.yandex.ru',
-    port:                 465,
-    authentication:       'plain',
-    user_name:            ENV['SMTP_LOGIN'],
-    password:             ENV['SMTP_PASSWD'],
-  }
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  #Production config
+  # config.action_mailer.default_url_options = { host: 'gartenz-testguru.herokuapp.com' }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   tls:                  true,
+  #   address:              'smtp.yandex.ru',
+  #   port:                 465,
+  #   authentication:       'plain',
+  #   user_name:            ENV['SMTP_LOGIN'],
+  #   password:             ENV['SMTP_PASSWD'],
+  # }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

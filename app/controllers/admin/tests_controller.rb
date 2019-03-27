@@ -1,6 +1,6 @@
 class Admin::TestsController < Admin::BaseController
   before_action :set_tests, only: %i[index update_inline]
-  before_action :set_test, only: %i[show edit update destroy start update_inline]
+  before_action :set_test, only: %i[show edit update destroy start update_inline publish]
 
   def index
   end
@@ -45,7 +45,27 @@ class Admin::TestsController < Admin::BaseController
     redirect_to admin_tests_path
   end
 
+  def publish
+    if publishable?(@test)
+      @test.published = true
+      if @test.save
+        flash[:success] = 'Test was published'
+        redirect_to admin_tests_path
+      end
+    else
+      flash[:danger] = 'There was error while tryng to publish test. check your questions or answers'
+      render :show
+    end
+  end
+
   private
+
+  def publishable?(test)
+    return false unless test.questions.count > 0
+    test.questions.each do |q|
+      return false if q.answers.correct.count == 0 || q.answers.count == 0
+    end
+  end
 
   def set_tests
     @tests = Test.all

@@ -4,6 +4,6 @@ class FeedbackMailer < ApplicationMailer
     @user = user
     @text = text
     # byebug
-    mail from:ENV['ADMIN_MAIL'], to: ENV['ADMIN_MAIL'], subject: 'You recieved a feedback from user'
+    mail from: user.email , to: ENV['ADMIN_MAIL'], subject: 'You recieved a feedback from user'
   end
 end

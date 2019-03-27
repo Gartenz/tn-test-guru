@@ -1,10 +1,12 @@
-<tr>
-  <td> <%= test.title %> </td>
-  <td> <%= test.level %> </td>
-  <% if test.category.present? %>
-    <td> <%= test.category.title %> </td>
-  <% end %>
-  <td>
-    <%= button_to t('.start'), start_test_path(test), class: "btn btn-success" %>
-  </td>
-</tr>
+<% if test.published %>
+  <tr>
+    <td> <%= test.title %> </td>
+    <td> <%= test.level %> </td>
+    <% if test.category.present? %>
+      <td> <%= test.category.title %> </td>
+    <% end %>
+    <td>
+      <%= button_to t('.start'), start_test_path(test), class: "btn btn-success" %>
+    </td>
+  </tr>
+<% end %>
