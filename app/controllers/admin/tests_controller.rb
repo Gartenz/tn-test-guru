@@ -47,8 +47,7 @@ class Admin::TestsController < Admin::BaseController
 
   def publish
     if publishable?(@test)
-      @test.published = true
-      if @test.save
+      if @test.update(published: true)
         flash[:success] = 'Test was published'
         redirect_to admin_tests_path
       end
