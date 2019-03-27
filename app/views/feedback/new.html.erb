@@ -1,0 +1,9 @@
+<div class="row">
+  <%= form_with url: feedback_index_path, method: :post do |f| %>
+  <div class="form-group">
+    <%= f.label :text, class: "input-group-text" %>
+    <%= f.text_area :text, rows: 8, cols: 80,class: "form-control" %>
+  </div>
+    <p><%= f.submit %></p>
+  <% end %>
+</div>
