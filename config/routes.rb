@@ -31,5 +31,6 @@ Rails.application.routes.draw do
       end
     end
     resources :gists, shallow: true, only: %i[index]
+    resources :badges, shallow: true
   end
 end

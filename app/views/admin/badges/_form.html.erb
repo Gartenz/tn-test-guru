@@ -1,0 +1,24 @@
+<%= render 'shared/errors', resource: @badge %>
+<%= form_with model: [:admin, @badge], local: true  do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: 'form-control' %>
+  </div>
+  <% if @badge.image.attached? %>
+    <div class="form-group">
+      <%= f.label 'Badge image' %>
+      <%= image_tag @badge.image, class: "card-img-top badge-img" %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
+<%= link_to 'Back', admin_badges_path, class: 'btn btn-link' %>
