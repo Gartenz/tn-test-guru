@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 2019_03_29_101145) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "success", default: false
+    t.datetime "time_completion"
     t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
     t.index ["test_id"], name: "index_test_passages_on_test_id"
     t.index ["user_id"], name: "index_test_passages_on_user_id"
