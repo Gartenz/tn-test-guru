@@ -1,4 +1,5 @@
 class Admin::BadgesController < Admin::BaseController
+  before_action :set_badge, only: %i[edit update destroy]
 
   def index
     @badges = Badge.all
@@ -9,7 +10,6 @@ class Admin::BadgesController < Admin::BaseController
   end
 
   def edit
-    @badge = Badge.find(params[:id])
   end
 
   def create
@@ -22,7 +22,6 @@ class Admin::BadgesController < Admin::BaseController
   end
 
   def update
-    @badge = Badge.find(params[:id])
     if @badge.update(badge_params)
       redirect_to admin_badges_path
     else
@@ -30,7 +29,16 @@ class Admin::BadgesController < Admin::BaseController
     end
   end
 
+  def destroy
+    @badge.destroy
+    redirect_to admin_badges_path
+  end
+
   private
+
+  def set_badge
+    @badge = Badge.find(params[:id])
+  end
 
   def badge_params
     params.require(:badge).permit(:name, :description, :image, :single, :badge_rule_id, :rule_value)
