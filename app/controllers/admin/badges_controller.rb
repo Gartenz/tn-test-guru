@@ -21,9 +21,18 @@ class Admin::BadgesController < Admin::BaseController
     end
   end
 
+  def update
+    @badge = Badge.find(params[:id])
+    if @badge.update(badge_params)
+      redirect_to admin_badges_path
+    else
+      render :new
+    end
+  end
+
   private
 
   def badge_params
-    params.require(:badge).permit(:name, :description, :image)
+    params.require(:badge).permit(:name, :description, :image, :single, :badge_rule_id, :rule_value)
   end
 end

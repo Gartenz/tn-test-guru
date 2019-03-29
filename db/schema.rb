@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_28_084247) do
+ActiveRecord::Schema.define(version: 2019_03_29_101145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,11 +45,23 @@ ActiveRecord::Schema.define(version: 2019_03_28_084247) do
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
+  create_table "badge_rules", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "description", null: false
+    t.string "rule_type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "badges", force: :cascade do |t|
     t.string "name", null: false
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "badge_rule_id"
+    t.string "rule_value"
+    t.boolean "single"
+    t.index ["badge_rule_id"], name: "index_badges_on_badge_rule_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -84,6 +96,7 @@ ActiveRecord::Schema.define(version: 2019_03_28_084247) do
     t.integer "correct_questions", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "success", default: false
     t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
     t.index ["test_id"], name: "index_test_passages_on_test_id"
     t.index ["user_id"], name: "index_test_passages_on_user_id"
@@ -139,6 +152,7 @@ ActiveRecord::Schema.define(version: 2019_03_28_084247) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "answers", "questions"
+  add_foreign_key "badges", "badge_rules"
   add_foreign_key "gists", "users"
   add_foreign_key "questions", "tests"
   add_foreign_key "test_passages", "questions", column: "current_question_id"

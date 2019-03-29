@@ -27,3 +27,12 @@ tests.each do |test|
   question.answers.create!(body: "False answer")
   question.save!
 end
+
+types = %w[Passage Creation]
+
+BadgeRule.create!([{ name: 'category_completion', description: 'Пройдена категория', rule_type: types[0]},
+                  { name: 'firt_test', description: 'Пройден первый тест', rule_type: types[0]},
+                  { name: 'first_failure', description: 'Первая ошибка', rule_type: types[0]},
+                  { name: 'first_speedrun', description: 'Первое скоростное прохождение', rule_type: types[0]},
+                  { name: 'first_test_creation', description: 'Содание первого теста', rule_type: types[1]},
+                  { name: 'x_tests_creation', description: 'Создание Х тестов', rule_type: types[1]}])

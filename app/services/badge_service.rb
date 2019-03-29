@@ -6,25 +6,39 @@ class BadgeService
 
   end
 
-  def check_badges
-    badges = Badge.pluck(:id, :rule)
+  def check_badges(badges)
     acquired_badges = []
-    badges.each do |id, rule|
-      acquired_badges << id if self.call "#{rule}_badge".to_sym
+    badges.each do |badge|
+      acquired_badges << id if self.call "#{badge.badge_rule.name}?".to_sym value
     end
   end
 
   private
 
-  def first_test_badge
-    @user.tests.count == 1
+  # Badge cheks for passage tests
+
+  def firt_test?(value)
+    @user.tests.count == 0
   end
 
-  def one_category_completed_badge
-    categories = Category.pluck(:title)
-    categories.each do |category|
-      user.tests.by_category(category) == Test.by_category(category)
-    end
+  def category_completion?(value)
+
+  end
+
+  def first_failure?(value)
+  end
+
+  def first_speedrun?(value)
+  end
+
+  #Badge checks for admin
+
+  def first_test_creation? (value)
+    @user.created_tests == 0
+  end
+
+  def x_tests_creation (value)
+    @user.created_tests.count == value
   end
 
 end
