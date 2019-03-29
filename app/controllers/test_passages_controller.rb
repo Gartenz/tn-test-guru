@@ -10,6 +10,8 @@ class TestPassagesController < ApplicationController
   end
 
   def update
+    redirect_to result_test_passage_path(@test_passage) and return if times_up?
+
     answer_ids = params[:answer_ids]
     if answer_ids
       @test_passage.accept!(answer_ids)
@@ -44,6 +46,12 @@ class TestPassagesController < ApplicationController
   end
 
   private
+
+  def times_up?
+    test_end = @test_passage.created_at.to_i + @test_passage.test.test_minutes * 60
+    time_now = DateTime.now.to_i
+    test_end - time_now <= 0
+  end
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])

@@ -2,10 +2,9 @@ document.addEventListener('turbolinks:load', function() {
   var control = document.querySelector('.timer')
   if (control) {
     var testTime = control.dataset.testTime * 60 * 1000
-    alert(control.dataset.startTest)
     var dueTime = Date.parse(control.dataset.startTest) + testTime
 
-    sec = setInterval(function() {
+    setInterval(function() {
       var now = new Date().getTime()
       var diff = dueTime - now
 
