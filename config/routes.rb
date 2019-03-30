@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }
 
   resources :feedback, only: %i[new create]
-
+  resources :badges, only: :index
+    
   resources :tests, only: :index do
 
     member do
@@ -31,5 +32,6 @@ Rails.application.routes.draw do
       end
     end
     resources :gists, shallow: true, only: %i[index]
+    resources :badges, shallow: true
   end
 end

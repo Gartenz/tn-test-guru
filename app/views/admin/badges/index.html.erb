@@ -1,0 +1,9 @@
+<div class="row mt-4">
+  <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+    <h3>Badges</h3>
+    <%= link_to 'New Badge', new_admin_badge_path, class: "btn btn-link" %>
+  </div>
+</div>
+<div class="row">
+  <%= render @badges %>
+</div>

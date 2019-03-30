@@ -16,7 +16,20 @@ class TestPassagesController < ApplicationController
     if answer_ids
       @test_passage.accept!(answer_ids)
       if @test_passage.completed?
+        uodate_params = {}
+        update_params[success:] = true if @test_passage.success?
+        update_params[time_completion:] = DateTime.now
+        @test_passage.update(update_params)
+
         TestsMailer.completed_test(@test_passage).deliver_now
+
+        badges = BadgeService.new(@test_passage).award_badges(Badge.passage_badges)
+        if badges
+          flash[:primary] = "You acquired some badges. check your page"
+          current_user.badges << badges
+          current_user.save
+        end
+
         redirect_to result_test_passage_path(@test_passage)
       else
         render :show

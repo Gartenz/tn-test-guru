@@ -13,6 +13,7 @@ class Test < ApplicationRecord
   scope :medium, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }
   scope :by_category, -> (name) { joins(:category).where('categories.title = ?', name) }
+  scope :published, -> { where(published: true) }
 
   def self.titles_by_category(name)
     by_category(name).pluck('tests.title')

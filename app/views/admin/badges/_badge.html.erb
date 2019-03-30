@@ -1,0 +1,16 @@
+<div class="card d-inline-flex mx-2 mt-3 shadow-sm badge-card">
+  <% if badge.image.attached? %>
+    <div class="text-center mt-3">
+      <%= image_tag badge.image, class: "card-img-top badge-img" %>
+    </div>
+  <% end %>
+  <div class="card-body">
+    <h5 class="card-title"><%= badge.name %></h5>
+    <p class="card-text text-wrap"><%=badge.description %></p>
+    <%= link_to t('admin.edit'), edit_admin_badge_path(badge), class: "btn btn-primary" %>
+    <%= link_to t('admin.delete'), admin_badge_path(badge),
+                                   method: :delete,
+                                   data: { confirm: t('delete_confirm') },
+                                   class: "btn btn-danger mt-1" %>
+  </div>
+</div>

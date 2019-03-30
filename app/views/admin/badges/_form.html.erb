@@ -1,0 +1,36 @@
+<%= render 'shared/errors', resource: @badge %>
+<%= form_with model: [:admin, @badge], local: true  do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: 'form-control' %>
+  </div>
+  <% if @badge.image.attached? %>
+    <div class="form-group">
+      <%= f.label 'Badge image' %>
+      <%= image_tag @badge.image, class: "card-img-top badge-img" %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="form-goup">
+    <%= f.label :single %>
+    <%= f.check_box :single, id: :single %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :badge_rule_id %>
+    <%= f.collection_select :badge_rule_id, BadgeRule.all, :id, :description, { prompt: true }, { class: "form-control" } %>
+    <%= f.label :rule_value %>
+    <%= f.text_field :rule_value, class: 'form-control' %>
+  </div>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
+<%= link_to 'Back', admin_badges_path, class: 'btn btn-link' %>
