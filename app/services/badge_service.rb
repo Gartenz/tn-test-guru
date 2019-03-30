@@ -6,11 +6,8 @@ class BadgeService
     @result = test_passage
   end
 
-  def badges(badges)
-    acquired_badges = []
-    badges.each do |badge|
-      acquired_badges << id if self.send "#{badge.badge_rule.name}?".to_sym, badge.rule_value
-    end
+  def award_badges(badges)
+    acquired_badges = badges.map { |badge| if self.send "#{badge.badge_rule.name}?".to_sym, badge.rule_value }
     Badge.where(id: acquired_badges)
   end
 
@@ -18,7 +15,7 @@ class BadgeService
 
   # Badge cheks for passage tests
 
-  def firt_test?(value)
+  def firt_test?(_value)
     @user.tests.count == 0
   end
 
@@ -27,7 +24,7 @@ class BadgeService
     test_ids.count == Test.by_category(value).published.count
   end
 
-  def first_failure?(value)
+  def first_failure?(_value)
     !@result.success?
   end
 
@@ -39,7 +36,7 @@ class BadgeService
 
   #Badge checks for admin
 
-  def first_test_creation? (value)
+  def first_test_creation? (_value)
     @user.created_tests == 0
   end
 

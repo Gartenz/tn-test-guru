@@ -7,9 +7,8 @@ Rails.application.routes.draw do
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }
 
   resources :feedback, only: %i[new create]
-  get :user_badges, to: 'badges#user_badges'
-  get :all_badges, to: 'badges#all_badges'
-
+  resources :badges, only: :index
+    
   resources :tests, only: :index do
 
     member do

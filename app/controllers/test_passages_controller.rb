@@ -14,12 +14,14 @@ class TestPassagesController < ApplicationController
     if answer_ids
       @test_passage.accept!(answer_ids)
       if @test_passage.completed?
-        @test_passage.update(success: true) if @test_passage.success?
-        @test_passage.update(time_completion: DateTime.now)
+        uodate_params = {}
+        update_params[success:] = true if @test_passage.success?
+        update_params[time_completion:] = DateTime.now
+        @test_passage.update(update_params)
 
         TestsMailer.completed_test(@test_passage).deliver_now
 
-        badges = BadgeService.new(@test_passage).badges(Badge.passage_badges)
+        badges = BadgeService.new(@test_passage).award_badges(Badge.passage_badges)
         if badges
           flash[:primary] = "You acquired some badges. check your page"
           current_user.badges << badges
